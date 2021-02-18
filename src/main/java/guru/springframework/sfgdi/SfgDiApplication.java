@@ -13,26 +13,26 @@ import guru.springframework.sfgdi.controllers.SetterInjectedController;
 public class SfgDiApplication {
 
   public static void main(String[] args) {
-    ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class,
-        args);
+    ApplicationContext ctx =
+        SpringApplication.run(SfgDiApplication.class, args);
     MyController myController = (MyController) ctx.getBean("myController");
 
-    String greeting = myController.sayHello();
+    System.out.println("===Primary Bean===");
+    System.out.println(myController.sayHello());
 
-    System.out.println(greeting);
-
-    PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx
-        .getBean("propertyInjectedController");
+    PropertyInjectedController propertyInjectedController =
+        (PropertyInjectedController) ctx.getBean("propertyInjectedController");
     System.out.println("===Property DI===");
     System.out.println(propertyInjectedController.getGreeting());
 
-    SetterInjectedController setterInjectedController = (SetterInjectedController) ctx
-        .getBean("setterInjectedController");
+    SetterInjectedController setterInjectedController =
+        (SetterInjectedController) ctx.getBean("setterInjectedController");
     System.out.println("===Setter DI===");
     System.out.println(setterInjectedController.getGreeting());
 
-    ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx
-        .getBean("constructorInjectedController");
+    ConstructorInjectedController constructorInjectedController =
+        (ConstructorInjectedController) ctx
+            .getBean("constructorInjectedController");
     System.out.println("===Constructor DI===");
     System.out.println(constructorInjectedController.getGreeting());
   }
